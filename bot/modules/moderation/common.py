@@ -2,8 +2,8 @@ from datetime import datetime, timedelta, timezone
 from telegram import Update, ChatMember, MessageEntity
 from telegram.error import TelegramError
 from bot.utils.admin import is_user_admin, bot_has_permission
+from bot.utils.user import resolve_target
 from bot.utils.message import reply
-from bot.modules.users import get_user_id
 
 
 def _parse_duration(arg: str) -> timedelta | None:
@@ -34,48 +34,6 @@ def _parse_args(context, arg_offset: int, has_duration: bool):
     )
 
 
-async def _resolve_target(update: Update, context):
-    message = update.message
-
-    if message.reply_to_message:
-        user = message.reply_to_message.from_user
-        return (user.id, user.username or user.full_name) if user else (None, None)
-
-    if not context.args:
-        return None, None
-
-    target = context.args[0].strip()
-
-    entities = list(message.parse_entities([MessageEntity.TEXT_MENTION]))
-    if entities:
-        ent = entities[0]
-        return ent.user.id, ent.user.username or ent.user.full_name
-
-    if target.startswith("@"):
-        uid = get_user_id(target)
-        if uid:
-            try:
-                chat = await context.bot.get_chat(uid)
-                return chat.id, chat.username or chat.first_name
-            except TelegramError:
-                return uid, target.lstrip("@")
-        return None, None
-
-    if target.lstrip("-").isdigit():
-        uid = int(target)
-        try:
-            member = await update.effective_chat.get_member(uid)
-            return member.user.id, member.user.username or member.user.full_name
-        except TelegramError:
-            try:
-                chat = await context.bot.get_chat(uid)
-                return chat.id, chat.username or chat.first_name
-            except TelegramError:
-                return None, None
-
-    return None, None
-
-
 async def get_member(chat, user_id):
     try:
         return await chat.get_member(user_id)
@@ -91,9 +49,7 @@ async def guard(update, s, condition, key) -> bool:
 
 
 async def check_common(update, context, s, action, check_admin_target=True):
-    if await guard(
-        update, s, not await is_user_admin(update), "common.user_not_admin"
-    ):
+    if await guard(update, s, not await is_user_admin(update), "common.user_not_admin"):
         return None, None, False
 
     if await guard(
@@ -104,7 +60,7 @@ async def check_common(update, context, s, action, check_admin_target=True):
     ):
         return None, None, False
 
-    user_id, display_name = await _resolve_target(update, context)
+    user_id, display_name = await resolve_target(update, context)
 
     if await guard(update, s, not user_id, "moderation.common.no_target"):
         return None, None, False
