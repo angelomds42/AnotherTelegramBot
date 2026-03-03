@@ -1,151 +1,178 @@
 # English strings
 common:
-  start: "Hi\\. I'm [Fujino](https://raw.githubusercontent.com/angelomds42/AyumuFujinoBot/refs/heads/main/bot/assets/banner.png)\\.\n\nI'm a group management bot with notes and a few other things too\\.\n\nClick the *Help* button below to see all my modules and commands\\."
-  start_group: "I'm here\\."
-  help: |
-    Select a module to see its commands\.
+  start: |
+    hey\. I'm [Fujino](https://raw.githubusercontent.com/angelomds42/AyumuFujinoBot/refs/heads/main/bot/assets/banner.png)\, a group management bot with notes, filters and a few other extras\.
 
-    *Info*\: In the commands below\: `<arg>` is required and `[arg]` is optional\.
-  help_pm: Click the button below to see my commands\.
-  back: "« Back"
-  btn_help: "Help »"
-  user_not_admin: 'Admins only\.'
+    hit *Help* to see what I can do\.
+  start_group: "hey, I'm here\\."
+  help: 'select a module below to see its commands\.'
+  help_pm: "I don't show menus in groups\\. tap the button to open this in PM\\."
+  back: "« back"
+  btn_help: "help »"
 
 basics:
   help: |
-    *Basics*\:
-    /start \- Start the bot
-    /help \- Show this menu
+    *basics*\:
+    /start \- start me up
+    /help \- show this menu
 
 github:
   help: |
-    *GitHub*\:
-    /github `<username>` \- Get info about a GitHub user
-  no_args: 'Usage\: `/github <username>`'
-  not_found: 'User not found\.'
-  error: 'Could not reach GitHub\.'
-  user_info: "User Infos"
-  name: "Name"
-  username: "Username"
-  location: "Location"
-  public_repos: "Repos"
-  followers: "Followers"
+    *github*\:
+    /github `<username>` \- look up a github user
+  no_args: 'usage\: `/github <username>`'
+  not_found: "don't know them\\."
+  error: "github isn't talking to me right now\\. try again later\\."
+  user_info: "profile"
+  name: "name"
+  username: "username"
+  location: "location"
+  public_repos: "repos"
+  followers: "followers"
 
 errors:
-  unknown: 'Something went wrong\.'
-  not_found: 'Not found\.'
+  unknown: 'something went wrong\.'
+  not_found: 'not found\.'
 
 moderation:
   common:
-    bot_no_permission: 'I need the restrict members permission for that\.'
-    no_target: 'Reply to a message, mention a user, or provide a user ID\.'
-    reply_required: 'Reply to a message to use this command\.'
-    restriction_reason: 'Reason\: {reason}'
+    user_not_admin: 'admins only\.'
+    bot_no_permission: "i need the restrict members permission for that\\. check my admin rights\\."
+    no_target: "who? reply to someone, mention them, or give me a user ID\\."
+    reply_required: 'reply to a message to use this\.'
+    restriction_reason: 'reason\: {reason}'
   ban:
     success: '`{username}` is banned\.'
-    duration: 'Duration\: {duration}'
-    error: 'Could not ban\. Check my permissions\.'
-    self: 'You can''t ban yourself\.'
-    admin: 'That''s an admin\.'
-    not_banned: 'That user isn''t banned\.'
+    duration: 'until\: {duration}'
+    error: "couldn't ban\\. check my permissions\\."
+    self: "banning yourself won't solve your problems\\."
+    admin: "they're an admin\\. i can't touch them\\."
+    not_banned: "they're not banned\\."
     help: |
-      *Bans*\:
-      /ban `<user>` `[duration]` `[reason]` \- Ban a user \(duration\: 1m, 2h, 3d\)
-      /dban `<reply>` \- Ban and delete the message
-      /unban `<user>` \- Unban a user
-      /kick `<user>` `[reason]` \- Kick a user
+      *bans*
+      the nuclear options\.
+
+      /ban `<usr>` `[time]` `[reason]` \- ban a user
+      /dban `<usr>` \- ban and delete their message
+      /unban `<usr>` \- unban a user
+      /kick `<usr>` `[reason]` \- kick a user
+
+      `<usr>` — @mention, reply or user ID
+      `[time]` — 1m, 2h, 3d
   unban:
     success: '`{username}` is unbanned\.'
-    error: 'Could not unban\. Check my permissions\.'
-    self: 'You can''t unban yourself\.'
+    error: "couldn't unban\\. check my permissions\\."
+    self: "you're not banned\\."
   kick:
-    success: '`{username}` was removed\.'
-    error: 'Could not kick\. Check my permissions\.'
-    self: 'You can''t kick yourself\.'
-    admin: 'That''s an admin\.'
+    success: '`{username}` was kicked\.'
+    error: "couldn't kick\\. check my permissions\\."
+    self: "kicking yourself out? that's a new one\\."
+    admin: "they're an admin\\. i can't touch them\\."
   mute:
     success: '`{username}` is muted\.'
-    duration: 'Duration\: {duration}'
-    error: 'Could not mute\. Check my permissions\.'
-    self: 'You can''t mute yourself\.'
-    admin: 'That''s an admin\.'
+    duration: 'until\: {duration}'
+    error: "couldn't mute\\. check my permissions\\."
+    self: "if you want to stop talking, just stop talking\\."
+    admin: "they're an admin\\. i can't touch them\\."
     help: |
-      *Mutes*\:
-      /mute `<user>` `[duration]` `[reason]` \- Mute a user
-      /unmute `<user>` \- Unmute a user
+      *mutes*
+      still here, just quiet\.
+
+      /mute `<usr>` `[time]` `[reason]` \- mute a user
+      /unmute `<usr>` \- unmute a user
+
+      `<usr>` — @mention, reply or user ID
+      `[time]` — 1m, 2h, 3d
   unmute:
-    success: '`{username}` can speak again\.'
-    error: 'Could not unmute\. Check my permissions\.'
-    self: 'You can''t unmute yourself\.'
-    not_muted: 'That user isn''t muted\.'
+    success: '`{username}` can talk again\.'
+    error: "couldn't unmute\\. check my permissions\\."
+    self: "you're not muted\\."
+    not_muted: "they're not muted\\."
   warn:
-    warned: '`{username}` warned\. `{count}/{limit}`'
-    banned: '`{username}` reached `{count}/{limit}` warns and was banned\.'
-    none: '`{username}` has no warns\.'
-    no_reason: "No reason"
-    list: '`{username}` has `{count}/{limit}` warns\:'
-    reset: 'Warns for `{username}` cleared\.'
-    limit_usage: 'Usage\: /warnlimit `<number>`'
-    limit_set: 'Warn limit set to `{limit}`\.'
-    self: 'You can''t warn yourself\.'
-    admin: 'That''s an admin\.'
+    warned: '`{username}` warned\. `{count}/{limit}` — keep it up\.'
+    banned: '`{username}` reached `{count}/{limit}` warns\. banned\.'
+    none: '`{username}` has a clean record\.'
+    no_reason: "no reason given"
+    list: '`{username}` — `{count}/{limit}` warns\:'
+    reset: 'warns cleared for `{username}`\.'
+    limit_usage: 'usage\: /warnlimit `<number>`'
+    limit_set: 'warn limit set to `{limit}`\.'
+    self: "you can't warn yourself\\."
+    admin: "they're an admin\\. i can't touch them\\."
     help: |
-      *Warns*\:
-      /warn `<user>` `[reason]` \- Warn a user
-      /warns `<user>` \- Show warns for a user
-      /resetwarn `<user>` \- Clear warns for a user
-      /warnlimit `<number>` \- Set the warn limit \(default\: 3\)
-  help: 'Select a moderation submodule\.'
+      *warns*
+      three strikes and you're out\. or however many you set\.
+
+      /warn `<usr>` `[reason]` \- warn a user
+      /warns `<usr>` \- check a user's warns
+      /resetwarn `<usr>` \- clear someone's warns
+      /warnlimit `<num>` \- set the warn limit \(default\: 3\)
+
+      `<usr>` — @mention, reply or user ID
+      `<num>` — any number, min\. 1
+  help: 'select a submodule\.'
 
 settings:
-  setlang_usage: 'Usage\: /setlang `<lang>`\. Available\: {langs}'
-  setlang_success: 'Language set to `{lang}`\.'
+  setlang_usage: 'usage\: /setlang `<lang>`\. available\: {langs}'
+  setlang_success: 'alright, `{lang}` it is\.'
   help: |
-    *Settings*\:
-    /setlang `<lang>` \- Set the group language
+    *settings*
+    tweak how i behave in this group\.
+
+    /setlang `<lang>` \- change the group language
+
+    `<lang>` — e\.g\. `en`, `pt`
 
 notes:
-  save_usage: 'Usage\: /save `<name>` `<content>` or reply to a message \(text or media\)'
-  save_success: '`#{name}` saved\.'
-  save_no_content: 'That message has no text to save\.'
-  delnote_usage: 'Usage\: /delnote `<name>`'
-  delnote_success: '`#{name}` deleted\.'
-  delnote_not_found: 'No note called `#{name}`\.'
-  get_usage: 'Usage\: /get `<number>`'
-  not_found_index: 'No note at position `{index}`\.'
-  not_found: 'No note called `#{name}`\.'
-  empty: 'No notes saved here\.'
-  list_header: 'Notes\:'
+  save_usage: 'usage\: /save `<n>` `<content>`\, or reply to a message'
+  save_success: 'saved `#{name}`\.'
+  save_no_content: "there's nothing to save in that message\\."
+  delnote_usage: 'usage\: /delnote `<n>`'
+  delnote_success: 'deleted `#{name}`\.'
+  delnote_not_found: "never heard of `#{name}`\\."
+  get_usage: 'usage\: /get `<number>`'
+  not_found_index: "nothing at position `{index}`\\."
+  not_found: "never heard of `#{name}`\\."
+  empty: 'no notes saved here yet\.'
+  list_header: 'notes\:'
   help: |
-    *Notes*\:
-    /save `<name>` `<content>` \- Save a note
-    /save `<name>` `(reply)` \- Save a message or media as a note
-    /notes \- List all notes
-    /get `<number>` \- Get a note by number
-    /delnote `<name>` \- Delete a note
-    \#name \- Get a note by name
+    *notes*
+    save things\. get them back later\.
+
+    /save `<n>` `<text>` \- save a note
+    /save `<n>` \(reply\) \- save a message or media as a note
+    /notes \- list all notes
+    /get `<num>` \- get a note by number
+    /delnote `<n>` \- delete a note
+    \#name \- get a note by name
+
+    `<n>` — note name
+    `<num>` — position in /notes list
 
 misc:
   help: |
-    *Misc*\:
-    /ping \- Check bot latency
-    /dice \- Roll a dice
+    *misc*\:
+    /ping \- check my response time
+    /dice \- roll a dice
 
 filters:
-  save_usage: 'Usage\: /filter `<keyword>` `<response>` or reply to a message\. Use quotes for multi\-word keywords\: /filter `"hey there"` `response`'
-  save_success: 'Filter `{keyword}` saved\.'
-  remove_usage: 'Usage\: /unfilter `<keyword>`'
-  remove_success: 'Filter `{keyword}` removed\.'
-  remove_all_success: 'All filters removed\.'
-  not_found: 'No filter called `{keyword}`\.'
-  no_content: 'That message has no text to save\.'
-  empty: 'No filters saved here\.'
-  list_header: 'Filters\:'
+  save_usage: 'usage\: /filter `<key>` `<msg>` or reply to a message\. for multi\-word keys use quotes\: /filter `"hey there"` `msg`'
+  save_success: 'filter `{keyword}` saved\.'
+  remove_usage: 'usage\: /unfilter `<key>`'
+  remove_success: 'filter `{keyword}` removed\.'
+  remove_all_success: 'all filters cleared\.'
+  not_found: "there's no filter called `{keyword}`\\."
+  no_content: "there's nothing to save in that message\\."
+  empty: 'no filters set here yet\.'
+  list_header: 'active filters\:'
   help: |
-    *Filters*\:
-    /filter `<keyword>` `<response>` \- Add a filter
-    /filter `"keyword with spaces"` `<response>` \- Multi\-word keyword
-    /filter `<keyword>` `\(reply\)` \- Add a filter from a message
-    /unfilter `<keyword>` \- Remove a filter
-    /stopall \- Remove all filters
-    /filters \- List all filters
+    *filters*
+    i reply so you don't have to\.
+
+    /filter `<key>` `<msg>` \- add a filter
+    /filter `<key>` \(reply\) \- add a filter from a message
+    /unfilter `<key>` \- remove a filter
+    /stopall \- clear all filters
+    /filters \- list active filters
+
+    `<key>` — single word or "phrase in quotes"

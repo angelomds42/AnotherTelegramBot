@@ -1,151 +1,178 @@
 # Strings em Português
 common:
-  start: "Oi\\. Sou [Fujino](https://raw.githubusercontent.com/angelomds42/AyumuFujinoBot/refs/heads/main/bot/assets/banner.png)\\.\n\nSou um bot para moderação de grupos com notas e algumas outras funções\\.\n\nClique no botão *Ajuda* abaixo para ver todos os meus módulos e comandos\\."
-  start_group: "Estou aqui\\."
-  help: |
-    Selecione um módulo para ver seus comandos\.
+  start: |
+    oi\. sou [Fujino](https://raw.githubusercontent.com/angelomds42/AyumuFujinoBot/refs/heads/main/bot/assets/banner.png)\, um bot de moderação de grupos com notas, filtros e mais algumas coisas\.
 
-    *Info*\: Nos comandos abaixo\: `<arg>` é obrigatório e `[arg]` é opcional\.
-  help_pm: Clique no botão abaixo para ver meus comandos\.
-  back: "« Voltar"
-  btn_help: "Ajuda »"
-  user_not_admin: 'Só admins\.'
+    use o botão *Ajuda* abaixo para ver tudo que posso fazer\.
+  start_group: 'oi, estou aqui\.'
+  help: 'selecione um módulo abaixo para ver os comandos\.'
+  help_pm: 'não mostro menus em grupos\. use o botão abaixo para abrir no privado\.'
+  back: "« voltar"
+  btn_help: "ajuda »"
 
 basics:
   help: |
-    *Básico*\:
-    /start \- Inicia o bot
-    /help \- Mostra este menu
+    *básico*\:
+    /start \- me inicia
+    /help \- mostra este menu
 
 github:
   help: |
-    *GitHub*\:
-    /github `<usuário>` \- Informações sobre um usuário do GitHub
-  no_args: 'Uso\: `/github <usuário>`'
-  not_found: 'Usuário não encontrado\.'
-  error: 'Não consegui acessar o GitHub\.'
-  user_info: "Informações do Usuário"
-  name: "Nome"
-  username: "Usuário"
-  location: "Localização"
-  public_repos: "Repositórios"
-  followers: "Seguidores"
+    *github*\:
+    /github `<usuário>` \- busca um usuário do github
+  no_args: 'uso\: `/github <usuário>`'
+  not_found: 'não conheço essa pessoa\.'
+  error: 'o github não está me respondendo agora\. tente de novo mais tarde\.'
+  user_info: "perfil"
+  name: "nome"
+  username: "usuário"
+  location: "localização"
+  public_repos: "repos"
+  followers: "seguidores"
 
 errors:
-  unknown: 'Algo deu errado\.'
-  not_found: 'Não encontrado\.'
+  unknown: 'algo deu errado\.'
+  not_found: 'não encontrado\.'
 
 moderation:
   common:
-    bot_no_permission: 'Preciso da permissão de restringir membros para isso\.'
-    no_target: 'Responda a uma mensagem, mencione um usuário ou forneça um ID\.'
-    reply_required: 'Responda a uma mensagem para usar este comando\.'
-    restriction_reason: 'Motivo\: {reason}'
+    user_not_admin: 'só admins\.'
+    bot_no_permission: 'preciso da permissão de restringir membros para isso\. verifique minhas permissões de admin\.'
+    no_target: 'quem? responda a alguém\, mencione\, ou me forneça um ID\.'
+    reply_required: 'responda a uma mensagem para usar isso\.'
+    restriction_reason: 'motivo\: {reason}'
   ban:
-    success: '`{username}` está banido\.'
-    duration: 'Duração\: {duration}'
-    error: 'Não consegui banir\. Verifique minhas permissões\.'
-    self: 'Você não pode se banir\.'
-    admin: 'Esse é um admin\.'
-    not_banned: 'Esse usuário não está banido\.'
+    success: '`{username}` foi banido\.'
+    duration: 'até\: {duration}'
+    error: 'não consegui banir\. verifique minhas permissões\.'
+    self: 'se banir não vai resolver seus problemas\.'
+    admin: 'esse é admin\. não posso fazer nada\.'
+    not_banned: 'ele nem está banido\.'
     help: |
-      *Bans*\:
-      /ban `<usuário>` `[duração]` `[motivo]` \- Bane um usuário \(duração\: 1m, 2h, 3d\)
-      /dban `<reply>` \- Bane e apaga a mensagem
-      /unban `<usuário>` \- Desbane um usuário
-      /kick `<usuário>` `[motivo]` \- Remove um usuário
+      *bans*
+      as opções nucleares\.
+
+      /ban `<usr>` `[tempo]` `[motivo]` \- bane um usuário
+      /dban `<usr>` \- bane e apaga a mensagem
+      /unban `<usr>` \- desbane um usuário
+      /kick `<usr>` `[motivo]` \- remove um usuário
+
+      `<usr>` — @menção, reply ou user ID
+      `[tempo]` — 1m, 2h, 3d
   unban:
     success: '`{username}` foi desbanido\.'
-    error: 'Não consegui desbanir\. Verifique minhas permissões\.'
-    self: 'Você não pode se desbanir\.'
+    error: 'não consegui desbanir\. verifique minhas permissões\.'
+    self: 'você nem está banido\.'
   kick:
     success: '`{username}` foi removido\.'
-    error: 'Não consegui remover\. Verifique minhas permissões\.'
-    self: 'Você não pode se remover\.'
-    admin: 'Esse é um admin\.'
+    error: 'não consegui remover\. verifique minhas permissões\.'
+    self: 'sair sozinho é sempre uma opção\.'
+    admin: 'esse é admin\. não posso fazer nada\.'
   mute:
-    success: '`{username}` está silenciado\.'
-    duration: 'Duração\: {duration}'
-    error: 'Não consegui silenciar\. Verifique minhas permissões\.'
-    self: 'Você não pode se silenciar\.'
-    admin: 'Esse é um admin\.'
+    success: '`{username}` foi silenciado\.'
+    duration: 'até\: {duration}'
+    error: 'não consegui silenciar\. verifique minhas permissões\.'
+    self: 'se quiser parar de falar\, é só parar\.'
+    admin: 'esse é admin\. não posso fazer nada\.'
     help: |
-      *Silêncio*\:
-      /mute `<usuário>` `[duração]` `[motivo]` \- Silencia um usuário
-      /unmute `<usuário>` \- Remove o silêncio
+      *silêncio*
+      ainda aqui, só quieto\.
+
+      /mute `<usr>` `[tempo]` `[motivo]` \- silencia um usuário
+      /unmute `<usr>` \- remove o silêncio
+
+      `<usr>` — @menção, reply ou user ID
+      `[tempo]` — 1m, 2h, 3d
   unmute:
     success: '`{username}` pode falar de novo\.'
-    error: 'Não consegui remover o silêncio\. Verifique minhas permissões\.'
-    self: 'Você não pode remover seu próprio silêncio\.'
-    not_muted: 'Esse usuário não está silenciado\.'
+    error: 'não consegui remover o silêncio\. verifique minhas permissões\.'
+    self: 'você nem está silenciado\.'
+    not_muted: 'ele nem está silenciado\.'
   warn:
-    warned: '`{username}` advertido\. `{count}/{limit}`'
-    banned: '`{username}` atingiu `{count}/{limit}` advertências e foi banido\.'
-    none: '`{username}` não tem advertências\.'
-    no_reason: "Sem motivo"
-    list: '`{username}` tem `{count}/{limit}` advertências\:'
-    reset: 'Advertências de `{username}` limpas\.'
-    limit_usage: 'Uso\: /warnlimit `<número>`'
-    limit_set: 'Limite de advertências definido para `{limit}`\.'
-    self: 'Você não pode se advertir\.'
-    admin: 'Esse é um admin\.'
+    warned: '`{username}` advertido\. `{count}/{limit}` — continue assim\.'
+    banned: '`{username}` atingiu `{count}/{limit}` advertências\. banido\.'
+    none: '`{username}` tem a ficha limpa\.'
+    no_reason: "sem motivo"
+    list: '`{username}` — `{count}/{limit}` advertências\:'
+    reset: 'advertências de `{username}` limpas\.'
+    limit_usage: 'uso\: /warnlimit `<número>`'
+    limit_set: 'limite de advertências definido para `{limit}`\.'
+    self: 'você não pode se advertir\.'
+    admin: 'esse é admin\. não posso fazer nada\.'
     help: |
-      *Advertências*\:
-      /warn `<usuário>` `[motivo]` \- Adverte um usuário
-      /warns `<usuário>` \- Mostra advertências de um usuário
-      /resetwarn `<usuário>` \- Limpa advertências de um usuário
-      /warnlimit `<número>` \- Define o limite de advertências \(padrão\: 3\)
-  help: 'Selecione um modulo de moderação\.'
+      *advertências*
+      três chances e acabou\. ou quantas você definir\.
+
+      /warn `<usr>` `[motivo]` \- adverte um usuário
+      /warns `<usr>` \- veja as advertências de alguém
+      /resetwarn `<usr>` \- limpe as advertências de alguém
+      /warnlimit `<num>` \- defina o limite \(padrão\: 3\)
+
+      `<usr>` — @menção, reply ou user ID
+      `<num>` — qualquer número, mín\. 1
+  help: 'selecione um submódulo\.'
 
 settings:
-  setlang_usage: 'Uso\: /setlang `<idioma>`\. Disponíveis\: {langs}'
-  setlang_success: 'Idioma definido para `{lang}`\.'
+  setlang_usage: 'uso\: /setlang `<idioma>`\. disponíveis\: {langs}'
+  setlang_success: 'certo\, `{lang}` então\.'
   help: |
-    *Configurações*\:
-    /setlang `<idioma>` \- Define o idioma do grupo
+    *configurações*
+    ajuste como me comporto neste grupo\.
+
+    /setlang `<idioma>` \- muda o idioma do grupo
+
+    `<idioma>` — ex\. `en`, `pt`
 
 notes:
-  save_usage: 'Uso\: /save `<nome>` `<conteúdo>` ou responda a uma mensagem \(texto ou mídia\)'
+  save_usage: 'uso\: /save `<n>` `<conteúdo>`\, ou responda a uma mensagem'
   save_success: '`#{name}` salva\.'
-  save_no_content: 'Essa mensagem não tem texto para salvar\.'
-  delnote_usage: 'Uso\: /delnote `<nome>`'
+  save_no_content: 'não tem nada para salvar nessa mensagem\.'
+  delnote_usage: 'uso\: /delnote `<n>`'
   delnote_success: '`#{name}` deletada\.'
-  delnote_not_found: 'Nenhuma nota chamada `#{name}`\.'
-  get_usage: 'Uso\: /get `<número>`'
-  not_found_index: 'Nenhuma nota na posição `{index}`\.'
-  not_found: 'Nenhuma nota chamada `#{name}`\.'
-  empty: 'Nenhuma nota salva aqui\.'
-  list_header: 'Notas\:'
+  delnote_not_found: 'nunca ouvi falar de `#{name}`\.'
+  get_usage: 'uso\: /get `<número>`'
+  not_found_index: 'nada na posição `{index}`\.'
+  not_found: 'nunca ouvi falar de `#{name}`\.'
+  empty: 'nenhuma nota salva aqui ainda\.'
+  list_header: 'notas\:'
   help: |
-    *Notas*\:
-    /save `<nome>` `<conteúdo>` \- Salva uma nota
-    /save `<nome>` `(reply)` \- Salva uma mensagem ou mídia como nota
-    /notes \- Lista todas as notas
-    /get `<número>` \- Pega uma nota pelo número
-    /delnote `<nome>` \- Deleta uma nota
-    \#nome \- Pega uma nota pelo nome
+    *notas*
+    salva coisas\. recupera depois\.
+
+    /save `<n>` `<texto>` \- salva uma nota
+    /save `<n>` \(reply\) \- salva uma mensagem ou mídia como nota
+    /notes \- lista todas as notas
+    /get `<num>` \- pega uma nota pelo número
+    /delnote `<n>` \- deleta uma nota
+    \#nome \- pega uma nota pelo nome
+
+    `<n>` — nome da nota
+    `<num>` — posição na lista de /notes
 
 misc:
   help: |
-    *Misc*\:
-    /ping \- Verifica a latência do bot
-    /dice \- Rola um dado
+    *misc*\:
+    /ping \- verifica meu tempo de resposta
+    /dice \- rola um dado
 
 filters:
-  save_usage: 'Uso\: /filter `<keyword>` `<resposta>` ou responda a uma mensagem\. Use aspas para keywords com espaços\: /filter `"bom dia"` `resposta`'
-  save_success: 'Filtro `{keyword}` salvo\.'
-  remove_usage: 'Uso\: /unfilter `<keyword>`'
-  remove_success: 'Filtro `{keyword}` removido\.'
-  remove_all_success: 'Todos os filtros removidos\.'
-  not_found: 'Nenhum filtro chamado `{keyword}`\.'
-  no_content: 'Essa mensagem não tem texto para salvar\.'
-  empty: 'Nenhum filtro salvo aqui\.'
-  list_header: 'Filtros\:'
+  save_usage: 'uso\: /filter `<key>` `<msg>` ou responda a uma mensagem\. para keys com espaços use aspas\: /filter `"bom dia"` `msg`'
+  save_success: 'filtro `{keyword}` salvo\.'
+  remove_usage: 'uso\: /unfilter `<key>`'
+  remove_success: 'filtro `{keyword}` removido\.'
+  remove_all_success: 'todos os filtros limpos\.'
+  not_found: 'não existe filtro chamado `{keyword}`\.'
+  no_content: 'não tem nada para salvar nessa mensagem\.'
+  empty: 'nenhum filtro definido aqui ainda\.'
+  list_header: 'filtros ativos\:'
   help: |
-    *Filtros*\:
-    /filter `<keyword>` `<resposta>` \- Adiciona um filtro
-    /filter `"keyword com espaços"` `<resposta>` \- Keyword com espaços
-    /filter `<keyword>` `\(reply\)` \- Adiciona um filtro de uma mensagem
-    /unfilter `<keyword>` \- Remove um filtro
-    /stopall \- Remove todos os filtros
-    /filters \- Lista todos os filtros
+    *filtros*
+    eu respondo pra você não precisar\.
+
+    /filter `<key>` `<msg>` \- adiciona um filtro
+    /filter `<key>` \(reply\) \- adiciona um filtro de uma mensagem
+    /unfilter `<key>` \- remove um filtro
+    /stopall \- limpa todos os filtros
+    /filters \- lista os filtros ativos
+
+    `<key>` — palavra ou "frase entre aspas"
