@@ -37,7 +37,10 @@ async def menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     s, _ = get_string_helper(update)
 
     if query.data == "start_main":
-        await start(update, context)
+        keyboard = InlineKeyboardMarkup(
+            [[InlineKeyboardButton(s("common.btn_help"), callback_data="help_main")]]
+        )
+        await edit_keyboard(update, s("common.start"), keyboard)
 
     elif query.data == "help_main":
         keyboard = InlineKeyboardMarkup(get_help_keyboard(s("common.back")))
