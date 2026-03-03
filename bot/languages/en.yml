@@ -48,6 +48,12 @@ moderation:
     self: 'You can''t ban yourself\.'
     admin: 'That''s an admin\.'
     not_banned: 'That user isn''t banned\.'
+    help: |
+      *Bans*\:
+      /ban `<user>` `[duration]` `[reason]` \- Ban a user \(duration\: 1m, 2h, 3d\)
+      /dban `<reply>` \- Ban and delete the message
+      /unban `<user>` \- Unban a user
+      /kick `<user>` `[reason]` \- Kick a user
   unban:
     success: '`{username}` is unbanned\.'
     error: 'Could not unban\. Check my permissions\.'
@@ -63,6 +69,10 @@ moderation:
     error: 'Could not mute\. Check my permissions\.'
     self: 'You can''t mute yourself\.'
     admin: 'That''s an admin\.'
+    help: |
+      *Mutes*\:
+      /mute `<user>` `[duration]` `[reason]` \- Mute a user
+      /unmute `<user>` \- Unmute a user
   unmute:
     success: '`{username}` can speak again\.'
     error: 'Could not unmute\. Check my permissions\.'
@@ -79,18 +89,13 @@ moderation:
     limit_set: 'Warn limit set to `{limit}`\.'
     self: 'You can''t warn yourself\.'
     admin: 'That''s an admin\.'
-  help: |
-    *Moderation*\:
-    /kick `<user>` `[reason]` \- Kick a user
-    /ban `<user>` `[duration]` `[reason]` \- Ban a user \(duration\: 1m, 2h, 3d\)
-    /dban `<reply>` \- Ban and delete the message
-    /unban `<user>` \- Unban a user
-    /mute `<user>` `[duration]` `[reason]` \- Mute a user
-    /unmute `<user>` \- Unmute a user
-    /warn `<user>` `[reason]` \- Warn a user
-    /warns `<user>` \- Show warns for a user
-    /resetwarn `<user>` \- Clear warns for a user
-    /warnlimit `<number>` \- Set the warn limit \(default\: 3\)
+    help: |
+      *Warns*\:
+      /warn `<user>` `[reason]` \- Warn a user
+      /warns `<user>` \- Show warns for a user
+      /resetwarn `<user>` \- Clear warns for a user
+      /warnlimit `<number>` \- Set the warn limit \(default\: 3\)
+  help: 'Select a moderation submodule\.'
 
 settings:
   setlang_usage: 'Usage\: /setlang `<lang>`\. Available\: {langs}'

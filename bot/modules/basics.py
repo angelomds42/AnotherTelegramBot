@@ -2,7 +2,10 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, CommandHandler, CallbackQueryHandler
 from bot.utils.help import (
     get_help_keyboard,
+    get_sections_keyboard,
     get_module_help,
+    get_section_help,
+    get_section_parent,
     get_string_helper,
     register_module_help,
 )
@@ -35,15 +38,46 @@ async def menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if query.data == "start_main":
         await start(update, context)
+
     elif query.data == "help_main":
         keyboard = InlineKeyboardMarkup(get_help_keyboard(s("common.back")))
         await edit_keyboard(update, s("common.help"), keyboard)
+
     elif query.data.startswith("help_mod_"):
         mod_name = query.data.replace("help_mod_", "")
-        help_key = get_module_help(mod_name)
+        submenu = get_sections_keyboard(mod_name, s("common.back"))
+
+        if submenu:
+            help_key = get_module_help(mod_name)
+            await edit_keyboard(update, s(help_key), InlineKeyboardMarkup(submenu))
+        else:
+            help_key = get_module_help(mod_name)
+            if help_key:
+                keyboard = InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                s("common.back"), callback_data="help_main"
+                            )
+                        ]
+                    ]
+                )
+                await edit_keyboard(update, s(help_key), keyboard)
+
+    elif query.data.startswith("help_sec_"):
+        label = query.data.replace("help_sec_", "")
+        help_key = get_section_help(label)
+        parent = get_section_parent(label)
+
         if help_key:
             keyboard = InlineKeyboardMarkup(
-                [[InlineKeyboardButton(s("common.back"), callback_data="help_main")]]
+                [
+                    [
+                        InlineKeyboardButton(
+                            s("common.back"), callback_data=f"help_mod_{parent}"
+                        )
+                    ]
+                ]
             )
             await edit_keyboard(update, s(help_key), keyboard)
 
