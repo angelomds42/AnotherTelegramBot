@@ -151,10 +151,17 @@ notes:
     `<num>` — position in /notes list
 
 misc:
+  id:
+    self: '*your ID*\: `{user_id}` *chat ID*\: `{chat_id}`'
+    user: '*User name*\: `{display_name}` *User ID*\: `{user_id}`'
+    not_found: "couldn't find that user\\."
   help: |
     *misc*\:
     /ping \- check my response time
     /dice \- roll a dice
+    /id `[usr]` \- your ID and chat ID, or someone else's if provided
+
+    `[usr]` — @mention, reply or user ID
 
 filters:
   save_usage: 'usage\: /filter `<key>` `<msg>` or reply to a message\. for multi\-word keys use quotes\: /filter `"hey there"` `msg`'

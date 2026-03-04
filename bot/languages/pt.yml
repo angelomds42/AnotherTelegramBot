@@ -151,10 +151,17 @@ notes:
     `<num>` — posição na lista de /notes
 
 misc:
+  id:
+    self: '*seu ID*\: `{user_id}` *ID do chat*\: `{chat_id}`'
+    user: '*Nome do user*\: `{display_name}` *ID do user*\: `{user_id}`'
+    not_found: 'não consegui encontrar esse usuário\.'
   help: |
     *misc*\:
     /ping \- verifica meu tempo de resposta
     /dice \- rola um dado
+    /id `[usr]` \- seu ID e do chat, ou de outra pessoa se informado
+
+    `[usr]` — @menção, reply ou user ID
 
 filters:
   save_usage: 'uso\: /filter `<key>` `<msg>` ou responda a uma mensagem\. para keys com espaços use aspas\: /filter `"bom dia"` `msg`'
