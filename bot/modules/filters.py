@@ -108,6 +108,6 @@ def __init_module__(application):
     application.add_handler(CommandHandler("stopall", filter_remove_all))
     application.add_handler(CommandHandler("filters", filter_list))
     application.add_handler(
-        MessageHandler(filters.TEXT & ~filters.COMMAND, handle_filters), group=2
+        MessageHandler(filters.TEXT, handle_filters), group=2
     )
     register_module_help("Filters", "filters.help")
